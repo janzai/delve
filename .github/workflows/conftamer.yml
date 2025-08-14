@@ -28,7 +28,7 @@ jobs:
         git clone https://github.com/emilykmarx/go.git
         cd ./go/src
         ./make.bash
-
-    - run: echo "CT_TARGET_GO=${{ github.workspace }}/go" >> "$GITHUB_ENV"
+        echo "CT_TARGET_GO=${{ github.workspace }}/go" >> "$GITHUB_ENV"
+        sudo ln -s "$(go env GOROOT)" /usr/local/go
 
     - run: python3 conftamer/pre-commit-hook.py
