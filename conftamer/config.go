@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"log/slog"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -38,6 +39,8 @@ type Config struct {
 	Ignore_msg_recvs bool `yaml:"ignore_msg_recvs"`
 	// Target config API endpoint
 	Config_API_endpoint string `yaml:"config_api_endpoint"`
+	// Logger Level
+	LoggerLevel slog.Level `yaml:"logger_level"`
 }
 
 func LoadConfig(file string) (*Config, error) {
